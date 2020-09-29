@@ -1,0 +1,46 @@
+{% if not envoyer %}
+    {% extends "user.html.twig" %}
+    {% block meta %}{% endblock %}
+    {% block titre %} SpeechMe - {{c}} {% endblock %}
+    {% block nav %}{% endblock %}
+    {% block notif %}{% endblock %} 
+    {% block contenu %}
+        <aside>
+            <ul>
+                <li><a href="index.php">{{home}}</a></li>
+                <li><span aria-current="page">{{c}}</span></li>
+            </ul>
+        </aside>
+
+        <section id="connexion">
+            <h1>{{c}}</h1>
+            {% if badSignIn %}
+                <h3>{{badSignInMsg}}</h3>
+            {% endif %}  
+            <section id ="recup_pwd">
+                    <h2>Récupération du mot de passe</h2>
+                     <span style="color:red">{{error}}</span>
+                    {% if section == 'code' %}
+                        <p>Un code de vérification vous a été envoyé sur votre mail : {{recup_mail}}</p>
+                        <br/>
+                        <form method="post" >
+                            <input type="text" placeholder="Code de vérification" name="verif_code"/><br/>
+                            <button type="submit" formaction="#recup_pwd" value="Valider" name="verif_submit"/>{{send}}</button>
+                        </form>
+                    {% elseif section == 'changemdp' %}
+                        <p>Nouveau mot de passe pour {{recup_mail}}</p>
+                        <form method="post">
+                            <input type="password" placeholder="Nouveau mot de passe" name="change_mdp"/><br/>
+                            <input type="password" placeholder="Confirmation du mot de passe" name="change_mdpc"/><br/>
+                            <button type="submit" value="Valider" formaction="#recup_pwd" name="change_submit"/>{{send}}</button>
+                        </form>
+                    {% else %}
+                        <form method="post">
+                            <input type="email" placeholder="Votre adresse mail" name="recup_mail"/><br/>
+                            <button type="submit" value="Valider" formaction="#recup_pwd"  name="recup_submit"/>{{send}}</button>
+                        </form>
+                    {% endif %}
+                </section> 
+        </section>
+    {% endblock %} 
+{% endif %}

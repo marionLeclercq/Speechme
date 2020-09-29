@@ -1,0 +1,72 @@
+{% extends "user.html.twig" %}
+{% block meta %}{% endblock %}
+{% block titre %} SpeechMe - Descriptif de l'évènement {% endblock %}    
+{% block contenu %}
+    <aside>
+        <ul>
+            <li><a href="user.php">{{espace}}</a></li>
+            <li><span aria-current="page">{{rechercher}}</span></li>
+        </ul>
+        <a href="deconnexion.php"><img src = "./images/deco.svg" alt="icone_deconnexion"></a>
+    </aside>
+    <section id="recherche">
+        <h1>{{r}}</h1>
+        <h3><span>&diams;  </span>{{champs}}</h3> 
+        <h3><span> &hearts; </span>{{renseig}}</h3>
+        <form method="post" action="rechercher.php" class="recherche" >
+            <div class="form-element">
+                <label><span>&hearts; </span>{{v}} :</label>
+                <input type="text" name="ville" id="ville" aria-label= "Entrez une ville">
+                <ul id="liste_ville">
+                </ul>
+                <input type="hidden" name="id_ville" id="id_ville" >
+            </div>
+            <div class="form-element">
+                <label><span>&hearts; </span>{{depart}} :<br> {{ex}}</label>
+                <input type="text" name="departement" id="departement" aria-label= "Entrez un departement" pattern="[0-9]+"  {% if dep is defined %}value="{{dep}}"{% endif %}/>
+            </div>
+            <div class="form-element">
+                <label><span>&diams; </span>{{lp}} :</label>
+                <input type="text" name="langue1" id="speakLang" aria-label="Entrez une langue" required />
+                <ul id = "liste_langues" >
+                </ul>
+                <input type= "hidden" name ="speakLang" id ="id_speakLang" />
+            </div>
+            <div class="form-element">
+                <label><span>&diams; </span>{{la}} :</label>
+                <input type="text" name="langue2" id="learnLang" aria-label="Entrez une langue" required />
+                <ul id = "liste2_langues" >
+                </ul>
+                <input type= "hidden" name ="learnLang" id ="id_learnLang" />
+            </div>
+            <div class="form-element">
+                <label>{{t}} :</label>
+                <input type="text" name="themes" id="themes" aria-label="Entrez un thème" />
+                <ul id = "liste_themes" >
+                </ul>
+                <input type= "hidden" name ="id_theme" id ="id_theme" />
+
+            </div>
+            
+            <button type="submit" formaction="#affichage" name="rechercher" value="rechercher">{{rechercher}}</button>
+        </form>
+    </section>
+    <section id="affichage">
+        <h1>{{result}}</h1>
+        <div>
+            {% if error %}
+                <h3>{{msg}}</h3>
+                <a href="rechercher.php"><img src="images/what.svg" alt="icone"></a>
+            {% endif %}
+            {% for infos_event in recherche_event %}
+                <form method='get' action='descriptif.php'>
+                    <h2>{{infos_event.nom}}</h2>
+                    <div>
+                        <input type="image" src="./{{infos_event.photo1}}" alt="Event_photo">
+                    </div> 
+                    <input type='hidden' name ='id_event' value='{{infos_event.id}}'>
+                </form>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}  

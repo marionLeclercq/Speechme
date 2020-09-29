@@ -1,0 +1,28 @@
+{% extends "user.html.twig" %}
+{% block meta %}{% endblock %}
+{% block titre %} SpeechMe - {{deco}} {% endblock %}   
+{% block contenu %}
+    <aside>
+        <ul>
+            <li><a href="user.php">{{espace}}</a></li>
+            <li><span aria-current="page">{{deco_confirm}}</span></li>
+        </ul>
+    </aside>
+    <section class="deco">
+        <h3>{{sure}}</h3>
+        {% if role == 'user' %}
+            <form method='POST' action='user.php' >
+                <input type='submit' name='maintien' value='{{oops}}'/>
+            </form>
+        {% endif %}
+        {% if role == 'admin' %}
+            <form method='POST' action='backoffice/index_BO.php' >
+                <input type='submit' name='maintien' value='{{oops}}'/>
+            </form>
+        {% endif %}
+        <form method='POST' action='deconnexion.php'>
+			<input type='submit' name='deconnexion' value='{{yes}}'/>
+	    </form>
+        
+    </section>
+{% endblock %}  

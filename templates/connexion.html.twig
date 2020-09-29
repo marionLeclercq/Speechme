@@ -1,0 +1,38 @@
+{% if not envoyer %}
+    {% extends "user.html.twig" %}
+    {% block meta %}{% endblock %}
+    {% block titre %} SpeechMe - {{c}} {% endblock %}
+    {% block nav %}{% endblock %}
+    {% block notif %}{% endblock %} 
+    {% block contenu %}
+        <aside>
+            <ul>
+                <li><a href="index.php">{{home}}</a></li>
+                <li><span aria-current="page">{{c}}</span></li>
+            </ul>
+        </aside>
+
+        <section id="connexion">
+            <h1>{{c}}</h1>
+            {% if badSignIn %}
+                <h3>{{badSignInMsg}}</h3>
+            {% endif %}  
+            <form method="post" action="connexion.php">
+                <div class="form-element">
+                    <label>{{email}}:</label>
+                    <input type="email" name="email" required />
+                </div>
+                <div class="form-element">
+                    <label>{{pwd}}:</label>
+                    <input type="password" name="password" required />
+                </div>
+                <div id="pwd_forgot">
+                    <a href="pwd_forgot.php">{{pwd_forgot}}</a>
+                </div>
+                <button type="submit" name="envoyer" value="envoyer">{{send}}</button>
+            </form> 
+        </section>
+    {% endblock %} 
+{% endif %}
+
+

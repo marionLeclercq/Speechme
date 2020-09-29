@@ -1,0 +1,43 @@
+{% extends "user.html.twig" %}
+{% block meta %}{% endblock %}
+{% block titre %} SpeechMe - Notifications {% endblock %}  
+{% block contenu %}
+    <aside>
+        <ul>
+            <li><a href="user.php">Mon espace </a></li>
+            <li><span aria-current="page">Notifications</span></li>
+        </ul>
+        <a href="deconnexion.php"><img src = "./images/deco.svg" alt="icone_deconnexion"></a>
+    </aside>
+    <section id="notif">
+        <h1>Notifications</h1>
+        {% if infos_msg_empty %}
+            <h2>Pas de notifications ou messages !</h2>
+        {% endif %}
+        {% if not infos_msg_empty %}
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Membre</th>
+                    <th>Evénement</th>
+                    <th>Message</th>
+                    <th>Actions</th>
+                <tr>
+        {% for info in infos_msg %}
+                <tr>
+                    <td data-label="Date">{{info.date|date("d-m-Y G:i") }}</td>
+                    <td data-label="Membre"><a href="affichage_profil.php?id={{info.id_user1}}">{{info.prenom_user1}}</a></td>
+                    <td data-label="Evénement">{{info.nom_event}}</td>
+                    <td data-label="Message">{{info.message}}</td>
+                    <td data-label="Actions">
+                        <input type="submit" class="suppr_notif" data-id="{{info.id}}" value='supprimer'>
+                        <input type="submit" class="répondre" value="Répondre">
+                    </td>
+                <tr>  
+        {% endfor %}
+                
+            </table> 
+            {% endif %}  
+    </section>
+
+{% endblock %} 

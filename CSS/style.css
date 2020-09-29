@@ -1,0 +1,793 @@
+@charset "UTF-8";
+/***************************************/
+/******** Fichier SCSS de base *********/
+/***************************************/
+/** Imports */
+/************************/
+/******** GENERAL *********/
+/************************/
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html {
+  height: 100%; }
+
+body {
+  background-color: #00DDFF;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 5em;
+  font-family: 'Source Sans Pro';
+  position: relative; }
+
+li {
+  list-style: none; }
+
+a {
+  text-decoration: none;
+  color: inherit; }
+
+[type="search"] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box; }
+
+/************************/
+/******* CONTENU ********/
+/***********************/
+/***** ___HEADER___ *****/
+.container {
+  overflow: hidden;
+  height: 100%; }
+
+.pusher {
+  transition-duration: 0.3s;
+  transform: translateX(0); }
+
+.with_sidebar .pusher {
+  transform: translateX(250px); }
+
+header {
+  background: #1c1c1c;
+  display: flex;
+  color: #f5f5f5;
+  min-height: 90px; }
+  header nav {
+    background-color: #0f0f0f;
+    min-width: 250px;
+    transform: translateX(-250px);
+    transition-duration: 0.3s; }
+    header nav a {
+      display: block;
+      height: 30px;
+      text-align: center;
+      line-height: 40px;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.822); }
+  header div#logo {
+    position: absolute;
+    left: 110px;
+    top: 10px; }
+    @media (max-width: 350px) {
+      header div#logo {
+        left: 90px;
+        top: 20px; } }
+    header div#logo img {
+      width: 140px; }
+      @media (max-width: 350px) {
+        header div#logo img {
+          width: 110px; } }
+  header div#icones {
+    position: absolute;
+    right: 5px;
+    top: 30px; }
+    header div#icones .btn {
+      cursor: pointer;
+      border: 1px solid #f5f5f5;
+      border-radius: 5px;
+      font-weight: bold;
+      padding: 2px 10px;
+      margin: 0 2px;
+      background: #1c1c1c; }
+    header div#icones .active, header div#icones .btn:hover {
+      background-color: #009BB3; }
+    header div#icones span a img {
+      width: 25px; }
+  header .header_icone {
+    position: absolute;
+    left: 40px;
+    top: 25px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer; }
+    header .header_icone:after {
+      content: "";
+      position: absolute;
+      width: 25px;
+      height: 0;
+      top: 12px;
+      box-shadow: 0 10px 0 1px #f5f5f5, 0 20px 0 1px #f5f5f5, 0 30px 0 1px #f5f5f5; }
+
+/********* ____MAIN____ ***********/
+main aside {
+  height: 5%; }
+  main aside p {
+    float: left;
+    padding-left: 40px;
+    color: #f5f5f5;
+    font-size: 1.2rem;
+    text-shadow: #1c1c1c 0em 0em 0.5em, #1c1c1c 0em 0em 0.5em, #1c1c1c 0em 0em 0.5em; }
+  main aside img {
+    width: 35px;
+    float: right;
+    margin-right: 30px; }
+  main aside ul li {
+    float: left;
+    padding: 1%;
+    margin-bottom: 3%; }
+    main aside ul li::before {
+      content: " → "; }
+    main aside ul li:first-child::before {
+      content: ""; }
+    main aside ul li:last-child {
+      font-weight: bold; }
+main section {
+  max-width: 1400px;
+  margin: 0 auto;
+  clear: both;
+  text-align: center; }
+  main section h1 {
+    font-weight: bolder;
+    font-size: 2.5rem;
+    padding-top: 25px; }
+main section#index h1 {
+  font-size: 2.3em; }
+main section#index h2 {
+  margin-top: 50px;
+  color: #f5f5f5;
+  text-shadow: #1c1c1c 0em 0em 0.5em, #1c1c1c 0em 0em 0.5em, #1c1c1c 0em 0em 0.5em; }
+main section#index h4 {
+  margin-top: 50px;
+  box-shadow: 0 5px 15px #009BB3, 0 5px 5px rgba(0, 0, 0, 0.19);
+  padding: 2%; }
+main section#index a {
+  background: #FF7100;
+  cursor: pointer;
+  border: 2px solid #1c1c1c;
+  border-radius: 15px;
+  font-weight: bold;
+  padding: 5px;
+  font-size: 1.3em;
+  text-decoration: none;
+  color: #1c1c1c; }
+  main section#index a:hover {
+    background: #009BB3;
+    border: 2px solid #f5f5f5; }
+main section#index div div#departement {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  main section#index div div#departement h3 {
+    margin-right: 10px;
+    border-bottom: 1px solid #1c1c1c; }
+  main section#index div div#departement select {
+    border-radius: 50%;
+    font-weight: bold;
+    padding: 5px;
+    color: #009BB3;
+    font-size: 1.2em;
+    border: 1px solid #009BB3; }
+main section#recherche span {
+  font-size: 1.2em; }
+main section#recherche form div.form-element {
+  margin-bottom: 30px; }
+  main section#recherche form div.form-element p {
+    margin-block-end: 5px;
+    margin-block-start: 0; }
+main section#affichage div > a img {
+  width: 30px; }
+main section#affichage div form {
+  display: inline-block; }
+  main section#affichage div form h2 {
+    width: 300px; }
+  main section#affichage div form div input {
+    width: 300px;
+    height: 300px; }
+main section#connexion h3, main section#login h3, main section#profil h3, main section#recherche h3, main section#creation h3 {
+  padding: 1%;
+  margin: 20px auto; }
+main section#connexion span a, main section#login span a, main section#profil span a, main section#recherche span a, main section#creation span a {
+  font-weight: bold;
+  border-bottom: 1px solid #1c1c1c; }
+main section#connexion form#upload input:nth-child(4), main section#connexion form#upload input:nth-child(5), main section#login form#upload input:nth-child(4), main section#login form#upload input:nth-child(5), main section#profil form#upload input:nth-child(4), main section#profil form#upload input:nth-child(5), main section#recherche form#upload input:nth-child(4), main section#recherche form#upload input:nth-child(5), main section#creation form#upload input:nth-child(4), main section#creation form#upload input:nth-child(5) {
+  display: none;
+  margin: 0 auto; }
+main section#connexion form#upload div, main section#login form#upload div, main section#profil form#upload div, main section#recherche form#upload div, main section#creation form#upload div {
+  margin-top: 20px; }
+  main section#connexion form#upload div img, main section#login form#upload div img, main section#profil form#upload div img, main section#recherche form#upload div img, main section#creation form#upload div img {
+    width: 200px;
+    height: 200px; }
+main section#connexion form, main section#login form, main section#profil form, main section#recherche form, main section#creation form {
+  margin: 30px auto;
+  padding: 10px;
+  border: 5px solid #f5f5f5;
+  background: #009BB3;
+  box-shadow: 0 10px 30px #009BB3, 0 6px 10px rgba(0, 0, 0, 0.19); }
+  main section#connexion form div#pwd_forgot, main section#login form div#pwd_forgot, main section#profil form div#pwd_forgot, main section#recherche form div#pwd_forgot, main section#creation form div#pwd_forgot {
+    margin-top: 2%; }
+    main section#connexion form div#pwd_forgot a, main section#login form div#pwd_forgot a, main section#profil form div#pwd_forgot a, main section#recherche form div#pwd_forgot a, main section#creation form div#pwd_forgot a {
+      text-decoration: underline; }
+  main section#connexion form label, main section#login form label, main section#profil form label, main section#recherche form label, main section#creation form label {
+    padding: 2%;
+    display: block;
+    font-size: 1.2rem; }
+  main section#connexion form input, main section#login form input, main section#profil form input, main section#recherche form input, main section#creation form input {
+    border: 2px solid #ccc;
+    font-size: 1rem;
+    font-weight: 100; }
+    main section#connexion form input input#conditions, main section#login form input input#conditions, main section#profil form input input#conditions, main section#recherche form input input#conditions, main section#creation form input input#conditions {
+      width: 100px; }
+  main section#connexion form #liste_ville, main section#connexion form #liste_langues, main section#connexion form #liste2_langues, main section#connexion form #liste_themes, main section#login form #liste_ville, main section#login form #liste_langues, main section#login form #liste2_langues, main section#login form #liste_themes, main section#profil form #liste_ville, main section#profil form #liste_langues, main section#profil form #liste2_langues, main section#profil form #liste_themes, main section#recherche form #liste_ville, main section#recherche form #liste_langues, main section#recherche form #liste2_langues, main section#recherche form #liste_themes, main section#creation form #liste_ville, main section#creation form #liste_langues, main section#creation form #liste2_langues, main section#creation form #liste_themes {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    width: 197px;
+    max-height: 100px;
+    overflow: auto; }
+    main section#connexion form #liste_ville li, main section#connexion form #liste_langues li, main section#connexion form #liste2_langues li, main section#connexion form #liste_themes li, main section#login form #liste_ville li, main section#login form #liste_langues li, main section#login form #liste2_langues li, main section#login form #liste_themes li, main section#profil form #liste_ville li, main section#profil form #liste_langues li, main section#profil form #liste2_langues li, main section#profil form #liste_themes li, main section#recherche form #liste_ville li, main section#recherche form #liste_langues li, main section#recherche form #liste2_langues li, main section#recherche form #liste_themes li, main section#creation form #liste_ville li, main section#creation form #liste_langues li, main section#creation form #liste2_langues li, main section#creation form #liste_themes li {
+      padding: 5px;
+      background: #f0f0f0;
+      border-bottom: #bbb9b9 1px solid; }
+      main section#connexion form #liste_ville li:hover, main section#connexion form #liste_langues li:hover, main section#connexion form #liste2_langues li:hover, main section#connexion form #liste_themes li:hover, main section#login form #liste_ville li:hover, main section#login form #liste_langues li:hover, main section#login form #liste2_langues li:hover, main section#login form #liste_themes li:hover, main section#profil form #liste_ville li:hover, main section#profil form #liste_langues li:hover, main section#profil form #liste2_langues li:hover, main section#profil form #liste_themes li:hover, main section#recherche form #liste_ville li:hover, main section#recherche form #liste_langues li:hover, main section#recherche form #liste2_langues li:hover, main section#recherche form #liste_themes li:hover, main section#creation form #liste_ville li:hover, main section#creation form #liste_langues li:hover, main section#creation form #liste2_langues li:hover, main section#creation form #liste_themes li:hover {
+        background: #ece3d2;
+        cursor: pointer; }
+  main section#connexion form button, main section#login form button, main section#profil form button, main section#recherche form button, main section#creation form button {
+    margin-top: 20px;
+    background: #FF7100;
+    cursor: pointer;
+    border: 2px solid #1c1c1c;
+    border-radius: 15px;
+    font-weight: bold;
+    padding: 5px;
+    text-decoration: none;
+    color: #1c1c1c; }
+    main section#connexion form button:hover, main section#login form button:hover, main section#profil form button:hover, main section#recherche form button:hover, main section#creation form button:hover {
+      color: #f5f5f5;
+      background: #009BB3;
+      border: 2px solid #f5f5f5; }
+@media only screen and (min-width: 1101px) {
+  main section#connexion form#infos_profil, main section#connexion form.creation, main section#connexion form.recherche, main section#login form#infos_profil, main section#login form.creation, main section#login form.recherche, main section#profil form#infos_profil, main section#profil form.creation, main section#profil form.recherche, main section#recherche form#infos_profil, main section#recherche form.creation, main section#recherche form.recherche, main section#creation form#infos_profil, main section#creation form.creation, main section#creation form.recherche {
+    text-align: initial; } }
+main section#connexion form#infos_profil div.form-element label, main section#connexion form.creation div.form-element label, main section#connexion form.recherche div.form-element label, main section#login form#infos_profil div.form-element label, main section#login form.creation div.form-element label, main section#login form.recherche div.form-element label, main section#profil form#infos_profil div.form-element label, main section#profil form.creation div.form-element label, main section#profil form.recherche div.form-element label, main section#recherche form#infos_profil div.form-element label, main section#recherche form.creation div.form-element label, main section#recherche form.recherche div.form-element label, main section#creation form#infos_profil div.form-element label, main section#creation form.creation div.form-element label, main section#creation form.recherche div.form-element label {
+  padding: 30px;
+  display: block;
+  font-size: 1.3rem; }
+  @media only screen and (min-width: 1101px) {
+    main section#connexion form#infos_profil div.form-element label, main section#connexion form.creation div.form-element label, main section#connexion form.recherche div.form-element label, main section#login form#infos_profil div.form-element label, main section#login form.creation div.form-element label, main section#login form.recherche div.form-element label, main section#profil form#infos_profil div.form-element label, main section#profil form.creation div.form-element label, main section#profil form.recherche div.form-element label, main section#recherche form#infos_profil div.form-element label, main section#recherche form.creation div.form-element label, main section#recherche form.recherche div.form-element label, main section#creation form#infos_profil div.form-element label, main section#creation form.creation div.form-element label, main section#creation form.recherche div.form-element label {
+      float: left;
+      text-align: right;
+      width: 40%;
+      clear: both;
+      font-size: 1.5rem; } }
+main section#connexion form#infos_profil div.form-element textarea, main section#connexion form.creation div.form-element textarea, main section#connexion form.recherche div.form-element textarea, main section#login form#infos_profil div.form-element textarea, main section#login form.creation div.form-element textarea, main section#login form.recherche div.form-element textarea, main section#profil form#infos_profil div.form-element textarea, main section#profil form.creation div.form-element textarea, main section#profil form.recherche div.form-element textarea, main section#recherche form#infos_profil div.form-element textarea, main section#recherche form.creation div.form-element textarea, main section#recherche form.recherche div.form-element textarea, main section#creation form#infos_profil div.form-element textarea, main section#creation form.creation div.form-element textarea, main section#creation form.recherche div.form-element textarea {
+  width: 250px;
+  height: 80px; }
+  @media only screen and (min-width: 701px) and (max-width: 1079px) {
+    main section#connexion form#infos_profil div.form-element textarea, main section#connexion form.creation div.form-element textarea, main section#connexion form.recherche div.form-element textarea, main section#login form#infos_profil div.form-element textarea, main section#login form.creation div.form-element textarea, main section#login form.recherche div.form-element textarea, main section#profil form#infos_profil div.form-element textarea, main section#profil form.creation div.form-element textarea, main section#profil form.recherche div.form-element textarea, main section#recherche form#infos_profil div.form-element textarea, main section#recherche form.creation div.form-element textarea, main section#recherche form.recherche div.form-element textarea, main section#creation form#infos_profil div.form-element textarea, main section#creation form.creation div.form-element textarea, main section#creation form.recherche div.form-element textarea {
+      width: 400px;
+      height: 100px; } }
+  @media only screen and (min-width: 1080px) {
+    main section#connexion form#infos_profil div.form-element textarea, main section#connexion form.creation div.form-element textarea, main section#connexion form.recherche div.form-element textarea, main section#login form#infos_profil div.form-element textarea, main section#login form.creation div.form-element textarea, main section#login form.recherche div.form-element textarea, main section#profil form#infos_profil div.form-element textarea, main section#profil form.creation div.form-element textarea, main section#profil form.recherche div.form-element textarea, main section#recherche form#infos_profil div.form-element textarea, main section#recherche form.creation div.form-element textarea, main section#recherche form.recherche div.form-element textarea, main section#creation form#infos_profil div.form-element textarea, main section#creation form.creation div.form-element textarea, main section#creation form.recherche div.form-element textarea {
+      height: 100px; } }
+@media only screen and (min-width: 1080px) {
+  main section#connexion form#infos_profil div.form-element input, main section#connexion form#infos_profil div.form-element textarea, main section#connexion form.creation div.form-element input, main section#connexion form.creation div.form-element textarea, main section#connexion form.recherche div.form-element input, main section#connexion form.recherche div.form-element textarea, main section#login form#infos_profil div.form-element input, main section#login form#infos_profil div.form-element textarea, main section#login form.creation div.form-element input, main section#login form.creation div.form-element textarea, main section#login form.recherche div.form-element input, main section#login form.recherche div.form-element textarea, main section#profil form#infos_profil div.form-element input, main section#profil form#infos_profil div.form-element textarea, main section#profil form.creation div.form-element input, main section#profil form.creation div.form-element textarea, main section#profil form.recherche div.form-element input, main section#profil form.recherche div.form-element textarea, main section#recherche form#infos_profil div.form-element input, main section#recherche form#infos_profil div.form-element textarea, main section#recherche form.creation div.form-element input, main section#recherche form.creation div.form-element textarea, main section#recherche form.recherche div.form-element input, main section#recherche form.recherche div.form-element textarea, main section#creation form#infos_profil div.form-element input, main section#creation form#infos_profil div.form-element textarea, main section#creation form.creation div.form-element input, main section#creation form.creation div.form-element textarea, main section#creation form.recherche div.form-element input, main section#creation form.recherche div.form-element textarea {
+    margin-left: 5px;
+    width: 523px;
+    margin-top: 35px; } }
+main section#connexion form#infos_profil div.form-element > p, main section#connexion form.creation div.form-element > p, main section#connexion form.recherche div.form-element > p, main section#login form#infos_profil div.form-element > p, main section#login form.creation div.form-element > p, main section#login form.recherche div.form-element > p, main section#profil form#infos_profil div.form-element > p, main section#profil form.creation div.form-element > p, main section#profil form.recherche div.form-element > p, main section#recherche form#infos_profil div.form-element > p, main section#recherche form.creation div.form-element > p, main section#recherche form.recherche div.form-element > p, main section#creation form#infos_profil div.form-element > p, main section#creation form.creation div.form-element > p, main section#creation form.recherche div.form-element > p {
+  text-decoration: underline;
+  font-weight: bold; }
+  @media only screen and (min-width: 1080px) {
+    main section#connexion form#infos_profil div.form-element > p, main section#connexion form.creation div.form-element > p, main section#connexion form.recherche div.form-element > p, main section#login form#infos_profil div.form-element > p, main section#login form.creation div.form-element > p, main section#login form.recherche div.form-element > p, main section#profil form#infos_profil div.form-element > p, main section#profil form.creation div.form-element > p, main section#profil form.recherche div.form-element > p, main section#recherche form#infos_profil div.form-element > p, main section#recherche form.creation div.form-element > p, main section#recherche form.recherche div.form-element > p, main section#creation form#infos_profil div.form-element > p, main section#creation form.creation div.form-element > p, main section#creation form.recherche div.form-element > p {
+      margin-left: 40%;
+      clear: both; } }
+@media only screen and (min-width: 1080px) {
+  main section#connexion form#infos_profil div.form-element div#speak, main section#connexion form#infos_profil div.form-element div#learn, main section#connexion form.creation div.form-element div#speak, main section#connexion form.creation div.form-element div#learn, main section#connexion form.recherche div.form-element div#speak, main section#connexion form.recherche div.form-element div#learn, main section#login form#infos_profil div.form-element div#speak, main section#login form#infos_profil div.form-element div#learn, main section#login form.creation div.form-element div#speak, main section#login form.creation div.form-element div#learn, main section#login form.recherche div.form-element div#speak, main section#login form.recherche div.form-element div#learn, main section#profil form#infos_profil div.form-element div#speak, main section#profil form#infos_profil div.form-element div#learn, main section#profil form.creation div.form-element div#speak, main section#profil form.creation div.form-element div#learn, main section#profil form.recherche div.form-element div#speak, main section#profil form.recherche div.form-element div#learn, main section#recherche form#infos_profil div.form-element div#speak, main section#recherche form#infos_profil div.form-element div#learn, main section#recherche form.creation div.form-element div#speak, main section#recherche form.creation div.form-element div#learn, main section#recherche form.recherche div.form-element div#speak, main section#recherche form.recherche div.form-element div#learn, main section#creation form#infos_profil div.form-element div#speak, main section#creation form#infos_profil div.form-element div#learn, main section#creation form.creation div.form-element div#speak, main section#creation form.creation div.form-element div#learn, main section#creation form.recherche div.form-element div#speak, main section#creation form.recherche div.form-element div#learn {
+    margin-left: 40%; } }
+main section#connexion h3, main section#login h3 {
+  background-color: #ccc;
+  border: 1px solid #1c1c1c;
+  box-shadow: 0 10px 30px #009BB3, 0 6px 10px rgba(0, 0, 0, 0.19);
+  width: 50%;
+  padding: 1%;
+  margin: 20px auto; }
+main section#creation > p, main section#creation p.langues {
+  background-color: #ccc;
+  border: 1px solid #1c1c1c;
+  box-shadow: 0 10px 30px #009BB3, 0 6px 10px rgba(0, 0, 0, 0.19);
+  margin: 6%;
+  padding: 1%; }
+main section#creation p.langues {
+  margin: 20px auto;
+  width: 200px; }
+main section#profil h1 {
+  font-size: 2.2rem; }
+main section#profil > div {
+  margin: 0 auto; }
+  main section#profil > div img {
+    border: 5px solid #009BB3;
+    border-radius: 50%; }
+main section#profil #change_pwd h4 {
+  text-decoration: underline red; }
+main section#events h1, main section#affichage_profil h1, main section#index h1 {
+  margin-top: 10px; }
+main section#events .photos_events, main section#affichage_profil .photos_events, main section#index .photos_events {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 5%; }
+  @media only screen and (min-width: 868px) and (max-width: 1078px) {
+    main section#events .photos_events, main section#affichage_profil .photos_events, main section#index .photos_events {
+      margin: 0 18%; } }
+  main section#events .photos_events form, main section#affichage_profil .photos_events form, main section#index .photos_events form {
+    margin: 10px; }
+    main section#events .photos_events form div input, main section#affichage_profil .photos_events form div input, main section#index .photos_events form div input {
+      width: 240px;
+      height: 240px;
+      border: 2px solid #00DDFF;
+      box-shadow: 0 10px 30px #009BB3, 0 6px 15px #009BB3; }
+main section#calendar h2 {
+  border: 2px solid #009BB3;
+  box-shadow: 0 10px 30px #009BB3, 0 6px 10px rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+  padding: 1%;
+  width: 240px;
+  margin: 30px auto 20px auto;
+  font-size: 1.2rem; }
+main section#calendar .calendar .titre {
+  display: flex;
+  justify-content: center; }
+  main section#calendar .calendar .titre span {
+    font-size: 1.2rem;
+    font-weight: bold;
+    width: 20px;
+    margin-right: 3%;
+    cursor: pointer; }
+    main section#calendar .calendar .titre span img {
+      width: 100%;
+      height: 100%; }
+  main section#calendar .calendar .titre p {
+    font-size: 1.2rem;
+    text-decoration: underline; }
+main section#calendar .calendar .infos_events form {
+  border: 2px solid #009BB3;
+  background-color: #DCDCDC;
+  border-radius: 5px;
+  padding: 3%;
+  width: 250px;
+  margin: 4px auto;
+  box-shadow: 0 10px 30px #009BB3, 0 6px 10px rgba(0, 0, 0, 0.19); }
+  main section#calendar .calendar .infos_events form div {
+    display: flex;
+    justify-content: center; }
+    main section#calendar .calendar .infos_events form div span {
+      width: 15px;
+      margin-right: 3%; }
+      main section#calendar .calendar .infos_events form div span img {
+        width: 100%;
+        height: 100%; }
+  main section#calendar .calendar .infos_events form input {
+    max-width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.19), 0 6px 10px rgba(0, 0, 0, 0.19); }
+main section#calendar #jp, main section#calendar #jap, main section#calendar #mes {
+  display: none; }
+main section#sitemap {
+  margin: 50px;
+  text-align: initial; }
+  main section#sitemap > ul {
+    padding: 0;
+    padding-top: 50px; }
+    main section#sitemap > ul li {
+      list-style: square;
+      color: #FF7100; }
+      main section#sitemap > ul li a:hover {
+        color: #1c1c1c; }
+main section#affichage_profil span img {
+  border: 5px solid #009BB3;
+  border-radius: 50%; }
+main section#affichage_profil h1 {
+  padding-top: 0; }
+main section#affichage_profil article {
+  margin: 0 10%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.19), 0 6px 10px rgba(0, 0, 0, 0.19); }
+main section#affichage_profil > section {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.19), 0 6px 10px rgba(0, 0, 0, 0.19);
+  margin: 5% 10%;
+  padding: 5%; }
+  main section#affichage_profil > section form {
+    margin-bottom: 1%; }
+main section#affichage_profil h4 {
+  border: 3px solid #009BB3;
+  border-radius: 15px;
+  padding: 5px;
+  cursor: pointer;
+  margin: 0 80px; }
+main section#affichage_profil h5 {
+  color: red; }
+main section#affichage_profil > form {
+  margin-top: 30px;
+  display: none; }
+  main section#affichage_profil > form textarea {
+    width: 300px;
+    height: 100px; }
+  main section#affichage_profil > form input {
+    margin-top: 10px;
+    background: #FF7100;
+    cursor: pointer;
+    border: 2px solid #1c1c1c;
+    border-radius: 15px;
+    font-weight: bold;
+    padding: 5px;
+    text-decoration: none;
+    color: #1c1c1c; }
+    main section#affichage_profil > form input:hover {
+      color: #f5f5f5;
+      background: #009BB3;
+      border: 2px solid #f5f5f5; }
+main section#descriptif #slideshow {
+  position: relative;
+  width: 350px;
+  height: 130px;
+  margin: 0px auto; }
+  @media only screen and (max-width: 340px) {
+    main section#descriptif #slideshow {
+      width: 300px;
+      height: 110px; } }
+  @media only screen and (min-width: 750px) and (max-width: 1100px) {
+    main section#descriptif #slideshow {
+      width: 700px;
+      height: 200px; } }
+  @media only screen and (min-width: 1101px) {
+    main section#descriptif #slideshow {
+      width: 950px;
+      height: 300px; } }
+  main section#descriptif #slideshow img {
+    position: absolute;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #00DDFF;
+    box-shadow: 0 10px 30px #009BB3, 0 6px 10px rgba(0, 0, 0, 0.19);
+    border-radius: 20px; }
+    main section#descriptif #slideshow img .slideshowactive {
+      z-index: 3; }
+main section#descriptif h1 {
+  padding-top: 0; }
+main section#descriptif #participants img {
+  border-radius: 50%; }
+main section#descriptif p {
+  text-align: center;
+  padding: 5%;
+  border: 1px solid #f5f5f5;
+  background-color: #009BB3;
+  margin: 5%; }
+main section#descriptif div#infos {
+  border: 1px solid #f5f5f5;
+  background-color: #009BB3;
+  text-align: initial;
+  margin: 5%;
+  padding: 2%; }
+  main section#descriptif div#infos img {
+    width: 25px; }
+  main section#descriptif div#infos span {
+    padding: 1%; }
+  main section#descriptif div#infos div span a {
+    border-bottom: 4px dashed #f5f5f5; }
+main section#descriptif #map, main section#descriptif #forum {
+  width: 80%;
+  height: 50px;
+  margin: 5% 10%;
+  background: rgba(128, 128, 128, 0.822);
+  border-bottom: #1c1c1c 1px solid; }
+main section#descriptif .actions a, main section#descriptif .actions button {
+  margin: 0 auto;
+  background: #FF7100;
+  cursor: pointer;
+  border: 2px solid #1c1c1c;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 5px;
+  text-decoration: none;
+  color: #1c1c1c; }
+  main section#descriptif .actions a:hover, main section#descriptif .actions button:hover {
+    background: #009BB3;
+    border: 2px solid #f5f5f5; }
+main section.deco h3 {
+  padding-top: 50px; }
+main section.deco form {
+  margin: 10px; }
+  main section.deco form input {
+    margin-top: 20px;
+    background: #FF7100;
+    cursor: pointer;
+    border: 2px solid #1c1c1c;
+    border-radius: 15px;
+    font-weight: bold;
+    padding: 5px;
+    text-decoration: none;
+    color: #1c1c1c; }
+    main section.deco form input:hover {
+      background: #009BB3; }
+main section#notif table {
+  border-collapse: collapse;
+  text-align: center;
+  margin: 30px auto; }
+  main section#notif table tr {
+    margin-bottom: 1rem; }
+    main section#notif table tr th {
+      color: #f5f5f5;
+      min-width: 100px;
+      background-color: #1c1c1c;
+      border: 2px solid #1c1c1c; }
+    main section#notif table tr td {
+      border: 2px solid #1c1c1c;
+      background-color: #f5f5f5;
+      padding: 10px; }
+      main section#notif table tr td:nth-child(odd) {
+        background: #ccc; }
+@media only screen and (max-width: 749px) {
+  main section#notif table, main section#notif tr, main section#notif th, main section#notif td {
+    display: block; }
+  main section#notif table tr {
+    margin: 0 0 1rem 0; }
+    main section#notif table tr th {
+      display: none; }
+    main section#notif table tr td {
+      border: thin solid #1c1c1c;
+      padding-left: 150px;
+      position: relative;
+      min-height: 40px; }
+      main section#notif table tr td:nth-child(odd) {
+        background-color: #ccc; }
+      main section#notif table tr td::before {
+        content: attr(data-label);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 130px;
+        bottom: 0;
+        padding: 8px;
+        color: #f5f5f5;
+        background-color: #1c1c1c;
+        display: flex;
+        align-items: center;
+        font-weight: bold; } }
+main section#quatrecentquatre {
+  height: 80%; }
+  main section#quatrecentquatre div:nth-child(1) {
+    width: 300px;
+    margin: 8% auto; }
+    main section#quatrecentquatre div:nth-child(1) img {
+      height: 100%;
+      width: 100%;
+      border: 6px solid #1c1c1c;
+      box-shadow: 0 20px 50px #1c1c1c, 0 6px 15px rgba(0, 0, 0, 0.19); }
+  main section#quatrecentquatre div:nth-child(2) {
+    margin-bottom: 30px;
+    min-height: 50px; }
+    main section#quatrecentquatre div:nth-child(2) a {
+      background: #FF7100;
+      cursor: pointer;
+      border: 2px solid #1c1c1c;
+      border-radius: 15px;
+      font-weight: bold;
+      padding: 2%; }
+main article#cgu {
+  clear: both;
+  padding: 2%; }
+  main article#cgu h1 {
+    text-align: center;
+    border-top: 1px solid #1c1c1c;
+    border-bottom: 1px solid #1c1c1c; }
+  main article#cgu p {
+    font-size: 1.2rem; }
+
+/******* ____FOOTER____ ********/
+footer {
+  background: #1c1c1c;
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0; }
+
+#liens {
+  margin-top: 10px; }
+  #liens a {
+    font-size: 0.8em;
+    padding-left: 20px;
+    background-color: #1c1c1c;
+    border: none;
+    color: #f5f5f5;
+    text-decoration: underline; }
+
+#reseaux {
+  float: right;
+  margin-right: 20px;
+  margin-top: -20px; }
+  #reseaux img {
+    border: 2px solid #1c1c1c;
+    border-radius: 10px;
+    width: 25px; }
+
+/****** ______BACKOFFICE______    *******/
+section#index_BO h1 {
+  font-size: 2.5rem;
+  clear: both; }
+  @media only screen and (min-width: 750px) {
+    section#index_BO h1 {
+      font-size: 2.8rem; } }
+section#index_BO article h2 {
+  border-bottom: 2px solid #FF7100;
+  width: 50%;
+  margin: 0 auto; }
+  @media only screen and (min-width: 750px) {
+    section#index_BO article h2 {
+      width: 30%;
+      font-size: 1.8rem; } }
+section#index_BO article div {
+  border: 2px solid #f5f5f5;
+  background-color: rgba(128, 128, 128, 0.822);
+  border-radius: 5px;
+  width: 50%;
+  height: 50px;
+  margin: 30px auto;
+  font-weight: bold;
+  padding: 1%; }
+  @media only screen and (min-width: 750px) {
+    section#index_BO article div {
+      font-size: 1.6rem; } }
+  section#index_BO article div:hover {
+    background-color: #FF7100;
+    color: #f5f5f5; }
+
+section#events_BO div {
+  margin-top: 20px;
+  float: left;
+  width: 200px; }
+  section#events_BO div a {
+    border: 1px solid #1c1c1c;
+    border-radius: 15px;
+    padding: 2%;
+    font-weight: bold; }
+section#events_BO h1 {
+  font-size: 2.5rem;
+  clear: both; }
+section#events_BO article {
+  margin-bottom: 60px; }
+  section#events_BO article h2 {
+    border: 2px solid rgba(128, 128, 128, 0.822);
+    width: 80%;
+    margin: 10px auto;
+    padding: 1%; }
+  section#events_BO article form {
+    display: inline-block;
+    margin: 0 10px; }
+    section#events_BO article form input {
+      margin: 10px auto;
+      border: 2px solid #f5f5f5;
+      color: #f5f5f5;
+      background-color: rgba(128, 128, 128, 0.822);
+      border-radius: 15px;
+      padding: 5px; }
+
+section#descriptif_BO h1 {
+  font-size: 2.5rem; }
+section#descriptif_BO > p, section#descriptif_BO div#infos {
+  border: 2px solid #f5f5f5;
+  color: #f5f5f5;
+  background-color: rgba(128, 128, 128, 0.822);
+  margin: 4% 6%;
+  padding: 2%; }
+section#descriptif_BO > a {
+  border: 1px solid #1c1c1c;
+  border-radius: 15px;
+  padding: 10px;
+  font-weight: bold; }
+section#descriptif_BO div#photos {
+  margin-top: 30px; }
+  section#descriptif_BO div#photos img {
+    width: 150px;
+    height: 150px;
+    border: 3px solid #f5f5f5; }
+section#descriptif_BO div#infos {
+  margin-bottom: 30px; }
+section#descriptif_BO button {
+  background: #FF7100;
+  cursor: pointer;
+  border: 2px solid #1c1c1c;
+  border-radius: 15px;
+  font-weight: bold;
+  padding: 5px; }
+
+section#users_BO {
+  text-align: center; }
+  section#users_BO h1 {
+    font-size: 2.5rem; }
+  section#users_BO div#select a {
+    display: block;
+    border: 2px solid #1c1c1c;
+    border-radius: 15px;
+    width: 50%;
+    margin: 5% auto;
+    padding: 10px; }
+  section#users_BO > a {
+    border: 1px solid #1c1c1c;
+    border-radius: 15px;
+    font-weight: bold;
+    padding: 10px; }
+  section#users_BO table {
+    border-collapse: collapse;
+    text-align: center;
+    margin: 30px auto; }
+    section#users_BO table tr {
+      margin-bottom: 1rem; }
+      section#users_BO table tr th {
+        color: #f5f5f5;
+        min-width: 100px;
+        background-color: #1c1c1c;
+        border: 2px solid rgba(128, 128, 128, 0.822); }
+      section#users_BO table tr td {
+        border: 1px solid #1c1c1c;
+        background-color: #f5f5f5;
+        padding: 10px; }
+        section#users_BO table tr td:nth-child(odd) {
+          background-color: #ccc; }
+        section#users_BO table tr td img {
+          width: 100px; }
+  @media only screen and (max-width: 749px) {
+    section#users_BO table, section#users_BO tr, section#users_BO th, section#users_BO td {
+      display: block; }
+    section#users_BO table tr {
+      margin: 2rem 1rem; }
+    section#users_BO table th {
+      display: none; }
+    section#users_BO table td {
+      border: thin solid #1c1c1c;
+      position: relative;
+      min-height: 40px;
+      text-align: right; }
+      section#users_BO table td button {
+        display: block;
+        margin-left: 140px; }
+      section#users_BO table td p {
+        margin-left: 140px; }
+      section#users_BO table td::before {
+        content: attr(data-label);
+        border-bottom: 1px solid #f5f5f5;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px;
+        bottom: 0;
+        padding: 8px;
+        color: #f5f5f5;
+        background-color: #1c1c1c;
+        display: flex;
+        align-items: center;
+        font-weight: bold; } }
+
+section#comments_BO {
+  margin-top: 20px;
+  padding: 5%; }
+  section#comments_BO > a {
+    border: 1px solid #1c1c1c;
+    border-radius: 15px;
+    padding: 10px;
+    font-weight: bold; }
+
+/*# sourceMappingURL=style.css.map */

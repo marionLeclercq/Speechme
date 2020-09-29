@@ -1,0 +1,9 @@
+@import '_couleurs.scss';
+@import '_tailles.scss';
+
+@mixin border($size:$size1, $color:$grisfonce) {
+    border: $size solid $color;
+}
+@mixin box_shadow($sizeA:$size10, $sizeB:$size30, $sizeC:$size6, $sizeD:$size10, $color1:$blanc4, $color2:$blanc4){
+    box-shadow: (0 $sizeA $sizeB $color1, 0 $sizeC $sizeD $color2);
+}

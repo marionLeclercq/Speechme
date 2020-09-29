@@ -1,0 +1,84 @@
+{% extends "user.html.twig" %}
+{% block meta %}{% endblock %}
+{% block titre %} SpeechMe - Création d'un évènement {% endblock %}  
+{% block contenu %}
+    <aside>
+        <ul>
+            <li><a href="user.php">{{espace}}</a></li>
+            <li><span aria-current="page">{{creer}}</span></li>
+        </ul>
+        <a href="deconnexion.php"><img src = "./images/deco.svg" alt="icone_deconnexion"></a>
+    </aside>
+    <section id="creation">
+        <h1>{{creer}}</h1>
+        <h3><span>&diams;  </span>{{champs}}</h3> 
+        <form enctype="multipart/form-data" action="creation.php" method="post" id="upload">
+                <input type="hidden" name="MAX_FILE_SIZE" value="300000000" />
+                <label for="idfile">&diams; {{add}} :</label>
+                <input id="idfile1" name="photo1" type="file" required oninput="display_input('idfile1','idfile2', 'idfile3')"/>
+                <input id="idfile2" name="photo2" type="file" />
+                <input id="idfile3" name="photo3" type="file" /><br>
+                <button name ="afficher" type="submit" value="Afficher">{{afficher}}</button><br>
+                {% for photo in array_photos %}
+                    <div class="img_upload"><img src="{{photo}}" alt="Event_photo"></div> 
+                {% endfor %}
+        </form>
+        {% if error %}
+            <p>{{msg}}</p>
+        {% endif %}
+        <form method="post" action="creation.php" class="creation" >
+            {% if affichage %}
+                <input type="hidden" name="photos[]" value="{{array_photos_encode}}">
+                <input type="hidden" name="photo_principale" value="{{photo1}}">
+            {% endif %}
+            <div class="form-element">
+                <label>&diams; {{nom_event}} :</label>
+                <input type="text" name="nom" aria-label= "Entrez le nom de l'évènement" required autofocus {% if nom is defined %} value="{{nom}}"{% endif %}/>
+            </div>
+            <div class="form-element">
+                <label>&diams; {{select}} :</label>
+                <input type="search" name="themes" id="themes" aria-label="Entrez un thème" required {% if theme is defined %} value="{{theme}}"{% endif %}/>
+                <ul id = "liste_themes" >
+                </ul>
+                <input type= "hidden" name ="id_themes[]" id ="id_theme" />
+                <input type= "hidden" name ="id_themes[]" id ="id_theme_2" />
+            </div>
+            <div class="form-element">
+                <label>&diams; {{lp}} :</label>
+                <input type= "text" id ="speakLang" name="speakLang" aria-label="Entrez les langues parlées"/>
+                <span id = "add_speak"><img src="./images/plus.svg" alt="icone_déroulement_menu" width="20"></span>
+                <ul id = "liste_langues" >
+                </ul>
+                <input type= "hidden" id ="id_speakLang" />
+                <div id="speak">
+                </div>
+            </div>
+            <div class="form-element">
+                <label>&diams; Description :</label>
+                <textarea name="description" aria-label="Entrez une description" required>{% if description is defined %}{{description}}{% endif %}</textarea>
+            </div>
+            <div class="form-element">
+                <label>&diams; {{v}} :</label>
+                <input type="text" name="ville" id= "ville" value="{{ville}}" required/ {% if ville is defined %} value="{{ville}}"{% endif %}>
+                <ul id="liste_ville">
+                </ul>
+                <input type="hidden" name="id_ville" id="id_ville" value ="{{id_ville}}">
+            </div>
+            <div class="form-element">
+                <label>&diams; {{address}} :</label>
+                <input type="text" name="adresse" aria-label="Entrez une adresse" required {% if adresse is defined %} value="{{adresse}}"{% endif %}/>
+            </div>
+            <div class="form-element">
+                <label>&diams; Date :</label>
+                <input type="date" name="date" aria-label="Entrez une date" required {% if date is defined %} value="{{date}}"{% endif %}/>
+            </div>
+            <div class="form-element">
+                <label>&diams; {{time}} :</label>
+                <input type="time" name="debut" aria-label="Entrez une heure de début" required {% if debut is defined %} value="{{debut}}"{% endif %}/>
+                <input type="time" name="fin" aria-label="Entrez une heure de fin" required  {% if fin is defined %} value="{{fin}}"{% endif %}/>
+            </div>
+            <button type="submit" name="valider" value="valider">{{valider}}</button>
+        </form>
+    </section>
+{% endblock %} 
+

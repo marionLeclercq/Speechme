@@ -1,0 +1,39 @@
+{% extends "user.html.twig" %}
+{% block meta %}
+    <meta property="og:title" content="SpeechMe - Trouver des correspondants linguistiques en se divertissant" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.speechme.fr" />
+    <meta property="og:image" content="./images/logo_smart.png" />
+{% endblock %}
+{% block titre %} SpeechMe - Trouver des correspondants linguistiques en se divertissant {% endblock %}
+{% block nav %}{% endblock %}
+{% block notif %}{% endblock %}            
+{% block contenu %} 
+<section id="index">
+    <h1>{{h1}}</h1>
+    <a href="connexion.php">{{c}}</a>
+    <a href="enregistrement.php">{{e}}</a>
+    <div>
+        <h2>{{h2}} :</h2>
+        <div id="departement">
+            <h3>{{sel}}:</h3>
+            <select name="depart" id="depart">
+            {% for departement in departements %}
+                <option value="{{departement.ville_departement}}" {% if departement.ville_departement == '06' %} selected="selected"{% endif %}>{{departement.ville_departement}}</option>
+            {% endfor %}
+            </select>
+        </div>
+    </div>
+        <div id= "img_events" class="photos_events">
+            {% for photo in photos %}
+            <form action='descriptif_pop.php' method='post'>
+                <div>
+                    <input type="image" name="voir" src="./{{photo.photo1}}" alt="Event_photo"/>
+                </div> 
+                <input type='hidden' name ='id_event' value='{{photo.id}}'>
+            </form>    
+            {% endfor %} 
+        </div>
+</section>
+{% endblock %}
+        

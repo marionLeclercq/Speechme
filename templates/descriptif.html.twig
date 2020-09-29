@@ -1,0 +1,66 @@
+{% extends "user.html.twig" %}
+{% block meta %}{% endblock %}
+{% block titre %} SpeechMe - {{descriptif}} {% endblock %}  
+{% block contenu %}
+    <aside>
+        <ul>
+            <li><a href="user.php">{{espace}} </a></li>
+            <li><span aria-current="page">{{descriptif}}</span></li>
+        </ul>
+        <a href="deconnexion.php"><img src = "./images/deco.svg" alt="icone_deconnexion"></a>
+    </aside>
+    <section id="descriptif" >
+        <div id="slideshow">
+           {% for src in infos_src %}
+                <img class="slideshowactive" src="{{src}}" alt="photo_event"/>
+           {% endfor %}    
+        </div>
+        <h1 id="nom_event">{{nom}}</h1>
+        <div id="participants">
+            <span>{{participants}}:</span>
+            {% for infos in tab_infos %}
+                <a href="affichage_profil.php?id={{infos.id}}"><img src="./{{infos.photo}}" alt="profil_photo" width="30" height="30"></a>
+            {% endfor %}
+        </div>
+        <p>{{description}}</p>
+        <div id="infos">
+            <div>
+                <img src="images/calendar.svg" alt="logo_agenda">
+                <span>{{date}}</span>
+                <span>{{debut}}: {{heure1}}</span>
+                <span>{{fin}}: {{heure2}}</span>
+            </div>
+            <div>
+                <img src="images/position.svg" alt="logo_position">
+                <span>{{adresse}},</span>
+                <span>{{ville}}</span>
+            </div>
+            <div>
+                <img src="images/personne.svg" alt="logo_membre">
+                <span>{{organisateur}} : <a href="affichage_profil.php?id={{id_user}}" id="prenom_orga">{{prenom}}</a></span>
+            </div>
+        </div>
+        <div id="map">
+            <h3>Plan google map</h3>
+        </div>
+        <div class ="actions">
+        {% if id_user != id_user_session and  participation == false %}
+           <button type="submit" name="participer" id="participer" style="display:block;">{{participer}}</button>
+           <button type="submit" name="annuler_part" id="annuler_part" style="display:none;">{{annuler_part}}</button>
+        {% endif %}  
+        {% if id_user != id_user_session and participation %}
+            <button type="submit" name="annuler_part" id="annuler_part" style="display:block;">{{annuler_part}}</button>
+            <button type="submit" name="participer" id="participer" style="display:none;">{{participer}}</button>
+        {% endif %}   
+        {% if id_user == id_user_session %}
+           <button type="submit" name="annuler_event" id="annuler_event">{{annuler}}</button>
+        {% endif %}
+           <input type="hidden" name="id_event" id="id_event" value="{{id_event}}">
+           <input type="hidden" name="id_user_session" id="id_user_session" value="{{id_user_session}}">
+           <input type="hidden" id="id_organisateur" value="{{id_user}}">
+           <input type="hidden" name="alert" id="alert"  value="{{alert_suppression}}: {{nom}}, {{ville}}, {{date}}, {{heure1}}.">
+            <input type="hidden" id="json_id_participants" value="{{json_id_participants}}">
+        </div>
+
+    </section>
+{% endblock %}   

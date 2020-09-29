@@ -1,0 +1,305 @@
+@import 'style.scss';
+@import '_couleurs.scss';
+
+/***** HEADER *****/
+.with_sidebar{
+    .pusher{
+        transform: translateX(350px);
+    }
+}
+header{
+    min-height: 120px;
+    nav{
+        min-width: 350px;
+        transform: translateX(-350px);
+        a{
+            font-size: 1.4rem;
+            border-bottom: 2px solid $grisclair;
+            height: 42px;
+        }
+    }
+    div#logo{
+        left: 150px;
+        img{
+            width: 200px;
+        }
+    }
+    div#icones{
+        right: 50px;
+        top: 45px;
+        >a{
+            font-size: 1.6rem;
+            padding: 2px 15px;
+            margin: 0 5px;
+        }
+        span{
+            a{
+                img{
+                    width: 35px; 
+                }
+            }
+        } 
+    }
+    .header_icone{
+        top: 40px;
+        left: 50px ;
+        &:after{
+            width: 35px;
+            box-shadow: 0 10px 0 1px $blanc, 0 22px 0 1px $blanc, 0 34px 0 1px $blanc;
+        }
+    }
+}
+
+
+
+/***** MAIN *****/
+main{
+    aside{
+        font-size: 1.3rem;
+        p{
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        img{
+            width: 45px;
+            float: right;
+            margin-right: 50px;
+        }
+    }
+    section{
+        h1{
+            font-size: 3.5em;
+            margin: 30px auto 30px auto;
+        }
+    }
+
+    section#index{
+        h1{
+            font-size: 2.8em;
+        }
+        a{
+            font-size: 1.3rem;
+            margin: 0 $size5;
+            padding: 7px;
+        }
+        div{
+            h2{
+                font-size: 2rem;
+                margin: 80px 50px 30px 50px;
+            }
+            img{
+                width: 180px;
+                margin:1%;
+            }
+        }
+    }
+    section#connexion, section#login, section#profil, section#recherche, section#creation{
+        form#upload{
+            div{
+                display: inline-block;
+                img{
+                    width:220px;
+                    height:220px;
+                }
+            }
+        }
+        form{
+            margin:50px;
+            label {
+                font-size: 2rem;
+            }
+            span{
+                font-size: 1.3rem;
+                font-weight: bold;
+                input#conditions{
+                    height: 20px;
+                    width: 20px;
+                }
+            }
+            
+            button{
+                font-size: 1.5rem;
+            }
+        }
+    }
+    section#profil{
+        >div{
+            img{
+                width: 200px;
+                height: 200px;
+            }
+        }
+    }
+    section#affichage{
+        div{
+            >a{
+                img{
+                    width: 50px;
+                }
+            }
+        }
+    }
+    section#events, section#affichage_profil{
+        span{
+            img{
+                width: 120px;
+            }
+        }
+        h1{
+            margin-top: 10px;
+            font-size: 4em;
+        }
+        h2{
+            font-size: 2em;
+            margin: 10px 25px;
+        }
+        h3{
+            font-size: 1.5em;
+            text-decoration: underline;
+        }
+        p{
+            font-size: 1.5em;
+        }
+        h4{
+            margin-bottom: 4%;
+        }
+        form#formMsg{
+            margin-bottom: 4%;
+            textarea{
+                width: 500px;
+            }
+        }
+        #photos_events{
+            flex-direction: row;
+            justify-content: center;
+            div{
+                width: 240px;
+                height: 240px;
+            }
+            button{
+                font-size: 1.4rem;
+            }
+        } 
+    }
+    section#descriptif{
+        div#participants{
+            span{
+                font-size: 1.3rem;
+            }
+            img{
+                width: 50px;
+                height: 50px;
+            }
+        }
+        >p{
+            font-size: 1.8rem;
+            margin-bottom:2%;
+        }
+        div#infos{
+            font-size: 1.5rem;
+            margin-top: 1%;
+            div{
+                margin-bottom: 5%;
+            }
+        }
+        div.actions{
+            margin-bottom: 2%;
+            a,button{
+                padding: 10px;
+                font-size: 1.3rem;
+            }
+        }
+        div#map{
+            margin: 3% auto;
+            height: 100px;
+            font-size: 1.1em;
+        }
+    }
+    section#calendar{
+        h2{
+            border-radius: 15px;
+            width: 300px;
+            font-size: 1.5rem;
+        }
+        .calendar{
+            .noevent{
+                font-size: 1.5rem;
+            }
+            .titre{
+                span{
+                    width: 30px;
+                }
+                p{
+                    font-size: 1.4rem; 
+                }
+            }
+            .infos_events{
+                form{
+                    width: 400px;
+                    div{
+                        span{
+                          width: 20px;
+                        }
+                    }
+                }
+            
+            } 
+        }  
+    }
+    section#connexion, section#login, section#profil, section#recherche, section#creation{
+        form{
+            #liste_ville,#liste_langues,#liste2_langues, #liste_themes {
+                width: 300px;
+            }
+            input{
+                width: 300px;
+                height: 40px;
+            }
+            p.langues{
+                width: 300px;;
+            }
+        }
+    }
+    
+    section#sitemap{
+        a{
+            font-size: 1.5rem;
+        }  
+    }
+    section.deco{
+        h3{
+            font-size: 1.5rem;
+        }
+        form{
+            input{
+                font-size: 1.2rem;
+                padding: 10px;  
+            }
+        }
+    }
+    section#quatrecentquatre{
+        height: 80%;
+            div:nth-child(1){
+                width: 700px;
+            }
+    }
+    
+}
+
+
+/******* FOOTER ********/
+
+footer{
+    height: 80px;
+    #liens{
+        font-size: 1.4em;
+    }
+    #reseaux{
+        margin-right: 50px;
+        img{
+            width: 40px;
+            margin-left: 8px;
+        }
+    }
+
+}

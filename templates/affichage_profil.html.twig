@@ -1,0 +1,45 @@
+{% extends "user.html.twig" %}
+{% block meta %}{% endblock %}
+{% block titre %} SpeechMe - Profil {% endblock %}  
+{% block contenu %}
+     <aside>
+        <ul>
+            <li><a href="user.php">{{espace}}</a></li>
+            <li><span aria-current="page">{{prenom}}</span></li>
+        </ul>
+        <a href="deconnexion.php"><img src = "./images/deco.svg" alt="icone_deconnexion"></a>
+    </aside>
+    <section id="affichage_profil">
+        <span><img src="{{photo}}" alt="photo_profil" width="80"></span>
+        <h1>{{prenom}}</h1>
+        <article>
+            <h2>{{j}}{{ville}}</h2>
+            <h2>{{description}}</h2>
+            <h3>{{speak}}</h3>
+            {% for langue in array_nom_langue_parlee %}
+                <p>- {{langue}}</p>
+            {% endfor %}
+            <h3>{{learn}}</h3>
+            {% for langue in array_nom_langue_apprentissage %}
+                <p>- {{langue}}</p>
+            {% endfor %}
+        </article>
+        <section>
+            <h2>{{mes}}</h2>
+            {% for infos in infos_events %}
+                <form action='descriptif.php' method='get'>
+                    <input type="submit" value="{{infos.nom}}">
+                    <input type='hidden' name ='id_event' value='{{infos.id}}'>
+                </form>
+            {% endfor %}
+        </section>
+        <h4 onclick="display('formMsg');">{{msg}}</h4>
+        {% if submit %}
+            <h5>{{retour}}</h5>
+        {% endif %}
+        <form method="post" action="affichage_profil.php" id="formMsg">
+            <textarea name="msg"></textarea><br>
+            <input type="submit" name="submitMsg" formaction="#formMsg" value="{{send}}">
+        </form>
+    </section>
+{% endblock %}     

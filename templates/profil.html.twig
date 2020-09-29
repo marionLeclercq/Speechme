@@ -1,0 +1,96 @@
+{% extends "user.html.twig" %}
+{% block meta %}{% endblock %}
+{% block titre %} SpeechMe - {{profil}} {% endblock %}
+{% block contenu %}
+    <aside>
+        <ul>
+            <li><a href="user.php">{{espace}}</a></li>
+            <li><span aria-current="page">{{profil}}</span></li>
+        </ul>
+        <a href="deconnexion.php"><img src = "./images/deco.svg" alt="icone_deconnexion"></a>
+    </aside>
+    <section id="profil" >
+        <h1>{{modif}}</h1>
+        <div><img src="{{photo}}" alt="Profile_photo" width = "100" height = "100"></div> 
+        <form enctype="multipart/form-data" action="profil.php" method="post">
+            <input type="hidden" name="MAX_FILE_SIZE" value="300000000" />
+            <label for="idfile">{{ajout}} :</label>
+            <input id="idfile" name="userfile" type="file" />
+            <p>{{echec}}</p>
+            <button name ="afficher" type="submit" value="Afficher">{{afficher}}</button>
+        </form>
+        <form method="post" action="profil.php" id="infos_profil" >
+            <h2>{{mf}}</h2>
+            <h3>( Validez pour prendre en compte vos modifications )</h3>
+            <div class="form-element">
+                <label>{{pm}}:</label>
+                <input type="text" name="username" pattern="[a-zA-Z0-9]+" value="{{user}}" />
+            </div>
+            <div class="form-element">
+                <label>{{v}} :</label>
+                <input type="text" name="ville" id= "ville" value="{{ville}}" />
+                <ul id="liste_ville">
+                </ul>
+                <input type="hidden" name="id_ville" id="id_ville" value ="{{id_ville}}"> 
+            </div>
+            <div class="form-element">
+                <label>{{d}}:</label>
+                <textarea name="description" >{{description}}</textarea>
+            </div>
+            <div class="form-element">
+                <label>{{choix}}:</label>
+                <input type= "text" id ="speakLang" name="speakLang"/>
+                <span id = "ajout_speak"><img src="./images/plus.svg" alt="icone_déroulement_menu" width="20"></span>
+                <ul id = "liste_langues" >
+                </ul>
+                <input type= "hidden" id ="id_speakLang" />
+                <p>{{speak}}:</p>
+                <div id="speak">
+                    {% for nom_langue in array_nom_langue_parlee %}
+                        <p class="langues">{{nom_langue}} <img src='./images/moins.svg' alt='icone_suppression' width='15'>
+                            <input type='hidden' name = 'id_speakLang[]' class= "id_speakLang" value='{{array_id_langue_parlee[i]}}'>
+                        </p>
+                        {% set i = i + 1 %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="form-element">
+                <label>{{choix2}}:</label>
+                <input type= "text" id ="learnLang" name="learnLang"/>
+                <span id = "ajout_learn"><img src="./images/plus.svg" alt="icone_déroulement_menu" width="20"></span>
+                <ul id = "liste2_langues" >
+                </ul>
+                <input type= "hidden" id ="id_learnLang" />
+                <p>{{learn}}:</p>
+                <div id = "learn" >
+                    {% for nom_langue in array_nom_langue_apprentissage %}
+                        <p class="langues">{{nom_langue}} <img src='./images/moins.svg' alt='icone_suppression' width='15'>
+                            <input type='hidden' name = 'id_learnLang[]' class="id_learnLang" value='{{array_id_langue_apprentissage[j]}}'>    
+                        </p>
+                        {% set j = j + 1 %}
+                    {% endfor %}
+                </div>
+                <input type="hidden" class = "id_user" value='{{id_user}}'>
+            </div>
+            <button type="submit" name="modif_profil" value="register">{{valider}}</button>
+        </form>
+        <form method="post" action="profil.php" id="change_pwd">
+            <h2>{{changepwd}}</h2>
+            {% if badSignUp %}
+                <h4>{{badSignUpMsg}}</h4>
+            {% endif %} 
+            <div class="form-element">
+                <label>{{new}}:</label>
+                <input type="password" name="password" required />
+            </div>
+            <div class="form-element">
+                <label>{{new2}}:</label>
+                <input type="password" name="password2" required />
+            </div>
+            <button type="submit" name="modif_pwd" formaction="#change_pwd" value="register">{{valider}}</button>
+        </form>
+        <form method="post" action="suppression_user.php">
+            <input type='submit' value="{{delete}}"></a>
+        </form>
+    </section>
+{% endblock %}

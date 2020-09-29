@@ -1,0 +1,53 @@
+{% if not register %}
+    {% extends "user.html.twig" %}
+    {% block meta %}{% endblock %}
+    {% block titre %} SpeechMe - {{e}} {% endblock %}
+    {% block nav %}{% endblock %}
+    {% block notif %}{% endblock %} 
+    {% block contenu %}
+        <aside>
+            <ul>
+                <li><a href="index.php">{{home}}</a></li>
+                <li><span aria-current="page">{{e}}</span></li>
+            </ul>
+        </aside>
+        <section id="login">
+            <h1>{{e}}</h1>
+            {% if badSignUp %}
+                <h3>{{badSignUpMsg}}</h3>
+                <span><a href='connexion.php'>&lt; Retour à la connexion</a></span>
+            {% endif %} 
+            <form method="post" action="enregistrement.php" >
+                <div class="form-element">
+                    <label>{{prenom}}:</label>
+                    <input type="text" name="username" pattern="[a-zA-Z]+" required />
+                </div>
+                <div class="form-element">
+                    <label>{{ville}}:</label>
+                    <input type="text" name="ville" id= "ville" required />
+                    <ul id="liste_ville">
+                    </ul>
+                    <input type="hidden" name="id_ville" id="id_ville">    
+                </div>
+                <div class="form-element">
+                    <label>{{email}}:</label>
+                    <input type="text" name="email" required />
+                </div>
+                <div class="form-element">
+                    <label>{{pwd1}}:</label>
+                    <input type="password" name="password" required />
+                </div>
+                <div class="form-element">
+                    <label>{{pwd2}}:</label>
+                    <input type="password" name="password2" required />
+                </div>
+                <div class="form-element">
+                    <span><input type="checkbox" name="conditions" id="conditions" checked>{{acc}}</span>
+                </div>
+                <button type="submit" name="register" value="register">{{send}}</button>
+            </form>
+        </section>
+    {% endblock %} 
+{% endif %} 
+
+

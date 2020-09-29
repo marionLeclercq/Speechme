@@ -1,0 +1,20 @@
+{% extends "user.html.twig" %}
+{% block meta %}{% endblock %}
+{% block titre %} SpeechMe - {{delete}} {% endblock %} 
+{% block contenu %}
+    <aside>
+        <ul>
+            <li><a href="user.php">{{espace}}</a></li>
+            <li><span aria-current="page">{{delete}}</span></li>
+        </ul>
+    </aside>
+    <section class="deco">
+        <h3>{{confirm}}</h3>
+        <form method='POST' action='user.php'>
+			<input type='submit' name='maintien' value='{{oops}}'/>
+	    </form>
+        <form method='POST' action='suppression_user.php'>
+			<input type='submit' name='suppression' value='{{yes}}'/>
+	    </form>
+    </section>
+{% endblock %}

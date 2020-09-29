@@ -1,0 +1,23 @@
+{% extends "index.html.twig" %}
+{% block meta %}{% endblock %}
+{% block titre %} SpeechMe - Création d'un évènement {% endblock %}
+{% block nav %}
+    <nav>    
+        <a href="profil.php">Mon profil</a>
+        <a href="rechercher.php">Rechercher</a>
+        <a href="creation.php">Créer des évènements</a>
+    </nav>
+    <a href="" id = "header_icone" class="header_icone"></a>
+{% endblock %}     
+{% block contenu %}
+    <aside>
+        <ul>
+            <li><a href="user.php">Mon espace </a></li>
+            <li><span aria-current="page">Confirmation</span></li>
+        </ul>
+    </aside>
+    <section>
+        <p>Confirmation de la création de votre évènement, après validation, l'annonce sera mise en ligne prochainement</p>
+        <a href="user.php">Retour à mon espace</a>
+    </section>
+{% endblock %}  

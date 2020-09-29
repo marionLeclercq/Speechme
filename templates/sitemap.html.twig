@@ -1,0 +1,36 @@
+{% extends "user.html.twig" %}
+{% block meta %}{% endblock %}
+{% block titre %} SpeechMe - {{p}} {% endblock %}
+{% block nav %}{% endblock %} 
+{% block notif %}{% endblock %}    
+{% block contenu %}
+    <aside>
+        <ul>
+            <li><a href="user.php">{{accueil}}</a></li>
+            <li><span aria-current="page">{{p}}</span></li>
+        </ul>
+    </aside>
+
+    <section id="sitemap">
+        <ul>
+            <li><a href="index.php">{{accueil}}</a>
+                <ul>
+                    <li><a href="connexion.php">{{connexion}}</a>
+                        <ul>
+                            <li><a href="user.php">{{user}}</a>
+                                <ul>
+                                    <li><a href="profil.php">{{profil}}</a></li>
+                                    <li><a href="rechercher.php">{{rechercher}}</a></li>
+                                    <li><a href="creation.php">{{creer}}</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li> 
+                    <li><a href="enregistrement.php">{{e}}</a></li> 
+                    <li><a href="CGU.php">{{m}}</a></li>
+                    <li><a href="sitemap.php">{{p}}</a></li>
+                </ul>
+            </li>  
+        </ul>
+    </section>
+{% endblock %}  

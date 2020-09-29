@@ -1,0 +1,49 @@
+{% extends "user.html.twig" %}
+{% block meta %}{% endblock %}
+{% block titre %} SpeechMe - {{descriptif}}  {% endblock %}
+{% block nav %}{% endblock %}
+{% block notif %}{% endblock %}            
+{% block contenu %} 
+    <aside>
+            <ul>
+                <li><a href="index.php">{{home}}</a></li>
+                <li><span aria-current="page">{{descriptif}}</span></li>
+            </ul>
+        </aside>
+    <section id="descriptif" ;>
+        <div id="slideshow">
+           {% for src in infos_src %}
+                <img class="slideshowactive" src="{{src}}" alt="photo event">
+           {% endfor %}
+        </div>
+        <h1>{{nom}}</h1>
+        <div id="participants">
+            <span>{{participants}}:</span>
+            {% for infos in tab_infos %}
+                <img src="./{{infos.photo}}" alt="profil_photo" width="30" height="30">
+            {% endfor %}
+        </div>
+        <p>{{description}}</p>
+        <div id="infos">
+            <div>
+                <img src="images/calendar.svg" alt="logo_agenda">
+                <span>_____</span>
+                <span>{{debut}} : {{heure1}}</span>
+                <span>{{fin}} : {{heure2}}</span>
+            </div>
+            <div>
+                <img src="images/position.svg" alt="logo_position">
+                <span>{{adresse}},</span>
+                <span>{{ville}}</span>
+            </div>
+            <div>
+                <img src="images/personne.svg" alt="logo_membre">
+                <span>{{organisateur}} : {{prenom}}</span>
+            </div>
+        </div>
+        <div class="actions">
+            <h3>Vous voulez y participez? Enregistrez-vous!<h3>
+            <a href="enregistrement.php">{{e}}</a>
+        </div>
+    </section>
+{% endblock %}   

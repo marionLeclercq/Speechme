@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="{{langue}}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    {% block meta %}{% endblock %}
+    <title>{% block titre %} SpeechMe - {{espace}} {% endblock %}</title>
+    <!-- ******  CSS ****** -->
+    <link rel="stylesheet" media="all" href="CSS/normalize.css">
+    <link rel="stylesheet" media="only screen and (max-width: 700px)" href="CSS/style.css">
+    <link rel="stylesheet" media="only screen and (min-width:701px) and (max-width:1079px)" href="css/tablette.css" />
+    <link rel="stylesheet" media="only screen and (min-width:1080px)" href="css/desktop.css" />
+    <!-- ******  FONT ****** -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <!-- ******  JQUERY ****** -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header class="pusher">
+            {% block nav %}
+                <nav>    
+                    <a href="profil.php">{{profil}}</a>
+                    <a href="rechercher.php">{{rechercher}}</a>
+                    <a href="creation.php">{{creer}}</a>
+                </nav>
+                <a href="" id = "header_icone" class="header_icone"></a>
+            {% endblock %} 
+            <div id="logo">
+                <a href="user.php"><img src="./images/logo.png" alt="logo"></a>
+            </div>
+            <div id="icones" > 
+                {% block notif %}
+                <span onload="getRow();"><a href="notifications.php"><img src = "./images/alarme.svg" alt="icone_notif" id ="image_alarme" onclick="no_notif();"></a></span>
+                {% endblock %}  
+            
+                <a href="{{page}}.php?langue=fr" {% if langue == "fr" %} class="btn active"{% else %} class="btn" {% endif %} >fr</a>
+                <a href="{{page}}.php?langue=en" {% if langue == "en" %} class="btn active"{% else %} class="btn" {% endif %}>en</a>
+                
+            </div>   
+        </header>   
+        <main>  
+            {% block contenu %}
+                <aside>
+                    <p>{{bonjour}} {{user}}!</p>
+                    <a href="deconnexion.php"><img src = "./images/deco.svg" alt="icone_deconnexion"></a>
+                </aside>
+                <div id="sections">
+                    <section id="events">
+                        <h1>{{espace}}</h1>
+                        <h2>{{d}}</h2>
+                        
+                        <div class="photos_events">
+                            {% for photo in photos %}
+                            <form action='descriptif.php' method='get'>
+                                <div>
+                                   <input type="image" name="voir" src="./{{photo.photo1}}" alt="Event_photo"/>
+                                </div> 
+                                <input type='hidden' name ='id_event' value='{{photo.id}}'>
+                            </form>    
+                            {% endfor %}
+                        </div>
+                    </section>
+                    <section id="calendar">
+                        <h2>{{cal}}</h2>
+                        <article class="calendar">
+                            <div class='titre'>
+                                <span id="span1" >
+                                    <img onclick="openclose('jp','img1'); return false;" id="img1" src="./images/plus.svg" alt="icone_déroulement_menu">
+                                </span>
+                                <p>{{jp}}</p>
+                            </div>
+                            <div id= "jp" style="display:none;" class="infos_events">
+                            {% if not tab_infos %}
+                                <p class="noevent">{{pas}}</p>
+                            {% endif %}
+                            {% for infos in tab_infos %}
+                                <form action='descriptif.php' method='get'>
+                                    <div>
+                                        <span><img src="./images/calendar.svg" alt="icone_calendar"></span>
+                                        <p>
+                                        {% if langue == 'fr'%}
+                                        {{infos.date|date('d/m/Y')}} 
+                                        {% else %}
+                                        {{infos.date}}
+                                        {% endif %}
+                                        </p>
+                                    </div>
+                                    <input type="submit" name= "nom_event" value='{{infos.nom}}'>
+                                    <input type='hidden' name ='id_event' value='{{infos.id}}'>
+                                </form>
+                            {% endfor %}
+                            </div> 
+                        </article>
+                        <article class="calendar">
+                            <div class='titre'>
+                                <span>
+                                    <img onclick="openclose('jap','img2'); return false;" id="img2" src="./images/plus.svg" alt="icone_déroulement_menu">
+                                </span>
+                                <p>{{jap}}</p>
+                            </div>
+                            <div id= "jap" class="infos_events">
+                            {% if not events_passes %}
+                                <p class="noevent">{{pas}}</p>
+                            {% endif %}
+                            </div> 
+                        </article>
+                        <article class="calendar">
+                            <div class='titre'>
+                                <span>
+                                    <img onclick="openclose('mes','img3'); return false;" id="img3" src="./images/plus.svg" alt="icone_déroulement_menu">
+                                </span>
+                                <p>{{mes}}</p>
+                            </div>
+                            <div  id= "mes" class="infos_events">
+                            {% if not events_crees %}
+                                <p class="noevent">{{pas}}</p>
+                            {% endif %}
+                            {% for infos in events_crees %}
+                                <form action='descriptif.php' method='get'>
+                                    <div>
+                                        <span><img src="./images/calendar.svg" alt="icone_calendar"></span>
+                                        <p>
+                                        {% if langue == 'fr'%}
+                                        {{infos.date|date('d/m/Y')}} 
+                                        {% else %}
+                                        {{infos.date}}
+                                        {% endif %}
+                                        </p>
+                                    </div>
+                                    <input type="submit" name= "nom_event" value='{{infos.nom}}'>
+                                    <input type='hidden' name ='id_event' value='{{infos.id}}'>
+                                </form>
+                            {% endfor %}
+                            </div> 
+                        </article>
+                    </section>
+                </div>
+            {% endblock %} 
+        </main>
+        <footer>
+            <div id="liens">
+                <a href="CGU.php" id="mentions" >{{m}}</a>
+                <a href="sitemap.php" id="plan">{{p}}</a>
+            </div>
+            <div id="reseaux">
+                <a href=""><img src="images/partage.svg" alt="partage_icone"></a>
+                <a href="" target="blanck"><img src="images/fb.jpg" alt = "facebook_icone"></a>
+                <a href="" target="blanck"><img src="images/instagram.jpg" alt="instagram_icone"></a>
+            </div>
+        </footer>
+    </div>
+
+<!-- ******  SCRIPT JS ****** -->
+    <script src= "./JS/menu_responsive.js"></script>
+    <script src="./JS/autocomplete.js"></script>
+    <script src="./JS/ajout_langues.js"></script>
+    <script src="./JS/diaporama.js"></script>
+    <script src="./JS/actionsEvent.js"></script>
+    <script src="./JS/openclose.js"></script>
+    <script src="./JS/selectPhotosDep.js"></script>
+    <script src="./JS/display.js"></script>
+    <script src="./JS/notifications.js"></script>
+</body>
+</html>
+            
