@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 Projet tutoré Licence : Site web communautaire linguistique
 
@@ -17,6 +16,3 @@ Un cahier de charges à été pré-établi avant le développement du site.
 La version actuelle du site est la numéro 1. La version 2 est en cours, avec notamment la mise en place d'API.
 
 Le site n'est pas en ligne, les évènements proposés sont factices. Possibilité de le tester en local.
-=======
-Projet tutoré Licence : Site web communautaire linguistique
->>>>>>> 2fd128bd88d99455119759d9c734068a2187ec9b
