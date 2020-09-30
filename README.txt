@@ -10,7 +10,7 @@ Mise en place de plusieures fonctionnalités:
 - Notifications/messages entre membres
 - Backoffice administrateur
 
-Technologies utilisées: HTML-CSS-Twig-Javascript-Jquery-ajax-mysql
+Technologies utilisées: HTML-CSS-Twig-Javascript-Jquery-ajax-PHP-mysql
 
 Un cahier de charges à été pré-établi avant le développement du site. 
 La version actuelle du site est la numéro 1. La version 2 est en cours, avec notamment la mise en place d'API.
